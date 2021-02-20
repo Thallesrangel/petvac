@@ -1,0 +1,80 @@
+.col-login-left
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-login-left h4
+{
+    margin-top: 15px;
+    font-size: 36px;
+}
+
+.col-login-right
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-login-right h2
+{
+    text-align: left;
+    font-weight: 650;
+    padding: 15px 0px;
+}
+
+.div-login-form
+{   
+    background-color: #FFF;
+    text-align: center;
+    width: 350px;
+}
+.div-login-form a 
+{
+    color: black;
+    font-size: 18px;
+}
+
+.btn-entrar
+{
+    background-color: #f45a6a;
+    font-size: 22px;
+    color: #FFF;
+    border-radius: 8px;
+    font-weight: 610;
+}
+
+.btn-registrar
+{
+    background: #f8b195;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 520;
+}
+
+.input-group-text {
+    text-align: left;
+    border: 0;
+    box-shadow: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    display: flex;
+    margin-bottom: 0;
+    padding: 1.5rem .75rem;
+    white-space: nowrap;
+    color: #adb5bd;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    background-color: #fff;
+    
+}
+
+.input-group-text:focus {
+    box-shadow: 0 1px 3px rgba(50,50,93,.15),0 1px 0 rgba(0,0,0,.02);
+    border: 1px solid #dee2e6;
+}

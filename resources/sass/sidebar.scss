@@ -1,0 +1,67 @@
+.sidebar {
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 100vh;
+}
+
+.sidebar ul li a {
+    padding: 10px;
+    margin: 0px 10px;
+    display: block;
+    text-decoration: none;
+    font-size: .995rem;
+    font-weight: 500;
+    color: #34495E;
+}
+
+.sidebar ul li a:hover
+{       
+    color: #FFF;
+    border-radius: 5px;
+    background-color: #f67280;
+    box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1),4px 4px 15px -5px rgba(21,114,232,.4) !important;
+}
+
+.sidebar ul li a i
+{
+    font-size: 22px;
+    padding: 8px 10px;
+    color: #2c3e50;
+}
+
+.perfil
+{
+    padding: 10px 20px;
+}
+
+.perfil h6
+{
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.perfil img
+{
+    max-width: 50px;
+    max-width: 50px;
+}
+
+@media (max-width: 900px) {
+
+    // todo
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        right: 100%;
+        left: -300px;
+        width: 300px;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        transition-timing-function: ease-in-out;
+        transition-duration: .2s;
+        transition-property: left, visibility;
+        z-index: 999;
+    }
+}

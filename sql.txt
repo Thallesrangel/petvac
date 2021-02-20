@@ -1,0 +1,129 @@
+create database petvac;
+
+use petvac;
+
+-- usuario
+
+create table tbusuario(
+    id_usuario int primary key auto_increment,
+    nome varchar(220) not null,
+    email varchar(220) not null,
+    senha varchar(220) not null,
+    data_nascimento date null,
+    flag_excluido int default 0
+);
+
+INSERT INTO `tbusuario` (`id_usuario`,`nome`,`email`,`senha`,`data_nascimento`) 
+VALUES (NULL, 'Administrador', 'rangelthr@gmail.com','202cb962ac59075b964b07152d234b70', NULL);
+
+-- especie
+
+create table tbespecie(
+    id_especie int primary key auto_increment,
+    id_usuario int not null,
+    especie varchar(220) not null,
+    flag_padrao int default 0,
+    flag_excluido int default 0,
+    FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario)
+);
+
+-- raca
+
+create table tbraca(
+    id_raca int primary key auto_increment,
+    id_usuario int not null,
+    id_especie int not null,
+    raca varchar(220) not null,
+    flag_padrao int default 0,
+    flag_excluido int default 0,
+    FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario),
+    FOREIGN KEY (id_especie) REFERENCES tbespecie(id_especie)
+);
+
+-- proprietario
+
+create table tbproprietario(
+    id_proprietario int primary key auto_increment,
+    id_usuario int not null,
+    nome varchar(220) not null,
+    flag_excluido int default 0,
+    FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario)
+);
+
+
+-- animal
+
+create table tbanimal(
+    id_animal int primary key auto_increment,
+    id_usuario int not null,
+    id_proprietario int not null,
+    id_especie int not null,
+    id_raca int not null,
+    nome varchar(220) not null,
+    identificacao varchar(220) not null,
+    data_nascimento date not null,
+    cor varchar(100) not null,
+    microchip varchar(220) null,
+    data_implantacao date null,
+    local_implantacao varchar(220) null,
+    flag_sexo int not null,
+    flag_castrado int not null,
+    flag_filhote int not null,
+    url_img varchar(220) null,
+    data_registro date not null,
+    flag_excluido int default 0,
+    FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario),
+    FOREIGN KEY (id_proprietario) REFERENCES tbproprietario(id_proprietario),
+    FOREIGN KEY (id_especie) REFERENCES tbespecie(id_especie),
+    FOREIGN KEY (id_raca) REFERENCES tbraca(id_raca)
+);
+
+-- vacina
+
+create table tbvacina(
+    id_vacina int primary key auto_increment,
+    id_usuario int not null,
+    id_animal int not null,
+    vacina varchar(220) not null,
+    dose double (10,2) not null,
+    data_aplicacao date not null,
+    data_revacinacao date null,
+    veterinario varchar(220) null,
+    registro_crmv varchar(100) null,
+    data_registro date not null,
+    flag_excluido int default 0,
+    FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario),
+    FOREIGN KEY (id_animal) REFERENCES tbanimal(id_animal)
+)
+
+
+
+
+
+-- DEPOIS
+
+
+-- fornecedor tipo
+
+create table tbfornecedor_tipo(
+    id_fornecedor_tipo int primary key auto_increment,
+    fornecedor_tipo varchar(220) not null,
+    flag_padrao int default 0,
+    flag_excluido int default 0
+);
+
+INSERT INTO `tbfornecedor_tipo` (`id_fornecedor_tipo`,`fornecedor_tipo`) 
+VALUES (NULL, 'Serviços e produtos'), (NULL, 'Serviços'), (NULL, 'Produtos');
+
+-- fornecedor
+
+create table tbfornecedor(
+    id_fornecedor int primary key auto_increment,
+    id_fornecedor_tipo int not null,
+    id_usuario int not null,
+    fornecedor varchar(220) not null,
+    flag_padrao int default 0,
+    flag_excluido int default 0,
+    FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario),
+    FOREIGN KEY (id_fornecedor_tipo) REFERENCES tbfornecedor_tipo(id_fornecedor_tipo)
+);

@@ -1,0 +1,73 @@
+.div-list
+{
+    background-color: #FFF;
+    border-radius: 8px;
+}
+
+.div-list h4
+{
+    font-weight: 600;
+    color: #2C3E50;
+}
+
+.btn-list-destroy-all
+{
+    background-color: #3742FA;
+}
+
+.btn-list-destroy-all i
+{
+    color: #FFF;
+    font-size: 18px;
+}
+
+.btn-list-destroy-all span
+{
+   color: #FFF;
+}
+
+
+.icon-crud
+{
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+.div-main-crud
+{
+    background-color: #FFF;
+    border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
+}
+
+.div-main-crud p
+{
+    padding: 10px 0px;
+}
+
+.text-breadcrumb
+{
+    text-decoration-style: none;
+    color: #2c3e50;
+}
+
+.table
+{
+    color: #34495e;
+    border-collapse: collapse;
+    margin-top: 20px;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+
+.table-head tr th
+{
+    color: #2c3e50;
+    background-color: #f6f9fc;
+    vertical-align: middle;
+    font-size: 16px;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid #e9ecef;
+    white-space: nowrap;
+    font-weight: 620;
+}

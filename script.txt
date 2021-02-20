@@ -1,0 +1,4 @@
+
+php artisan make:controller HomeController --resource
+
+php artisan make:model Models\\Usuario
