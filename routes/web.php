@@ -39,6 +39,8 @@ Route::middleware([Autenticado::class])->group(function () {
             Route::get('/', 'ProprietarioController@index')->name('proprietario');
             Route::get('/registrar', 'ProprietarioController@create')->name('proprietario.registrar');
             Route::post('/salvar', 'ProprietarioController@store')->name('proprietario.store');
+            Route::get('/excluir/{id}', 'ProprietarioController@destroy')->name('proprietario.excluir');
+            Route::delete('/excluir-varios', 'ProprietarioController@destroyAll')->name('proprietario.excluirvarios');
         });
 
         # Animal
@@ -59,8 +61,15 @@ Route::middleware([Autenticado::class])->group(function () {
             Route::get('{idAnimal}/registrar', 'VacinaController@create')->name('vacina.registrar');
             Route::post('/salvar', 'VacinaController@store')->name('vacina.store');
             Route::get('/excluir/{id}', 'VacinaController@destroy')->name('vacina.excluir');
-            Route::delete('/excluir-varios', 'TicketsController@destroyAll')->name('vacina.excluirvarios');
+            Route::delete('/excluir-varios', 'VacinaController@destroyAll')->name('vacina.excluirvarios');
         });
 
+        // Fallback
+        Route::fallback(function() {
+            echo 'erro';
+        });
+
+        // redireciona a primeira rota, para segunda.
+        //Route::redirect('route1', 'route2');
     });
 });

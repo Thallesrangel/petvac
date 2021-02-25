@@ -17,8 +17,12 @@ class VacinaController extends Controller
             'Vacinas' => 'false'
         ];
         
-        $animal = Animal::findOrFail($idAnimal)->toArray();
-        $vacinas = Vacina::whereIdAnimal($idAnimal)->get()->toArray();
+        $animal = Animal::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idAnimal)->toArray();
+        $vacinas = Vacina::where('id_usuario', session('usuario.id_usuario'))
+                        ->where('flag_excluido', 0)
+                        ->whereIdAnimal($idAnimal)
+                        ->get()
+                        ->toArray();
        
         return view('vacina.list', 
         [ 
@@ -26,17 +30,16 @@ class VacinaController extends Controller
             'vacinas' => $vacinas,
             'breadcrumb' => $breadcrumb
         ]);
-
     }
 
     public function animal()
     {
         $breadcrumb = [
             'Início' => 'painel',
-            'Animais' => 'false'
+            'Animal' => 'false'
         ];
      
-        $animais = Animal::get();
+        $animais = Animal::where('id_usuario', session('usuario.id_usuario'))->get();
         
         return view('vacina.animal', [ 'animais' => $animais, 'breadcrumb' => $breadcrumb] );
     }
@@ -94,22 +97,21 @@ class VacinaController extends Controller
 
     public function destroy($idVacina)
     {
-        
-        $vacina = Vacina::findOrFail($idVacina);
-        $vacina->delete();
+        $vacina = Vacina::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idVacina);
+        $vacina->flag_excluido = 1;
+        $vacina->save();
 
         # Mensagem
         session()->flash('alert', 'excluido');
 
-        return redirect()->route('motorista');
+        return redirect()->route('vacina');
     }
 
     public function destroyAll(Request $request)
     {
-       
         $ids = $request->get('ids');
         $all = implode(',', $ids);
-        Vacina::whereIn('id_vacina', explode(',', $all))->delete();
+        Vacina::whereIn('id_vacina', explode(',', $all))->update(['flag_excluido' => 1]);
 
         # Mensagem
         session()->flash('alert', 'excluido');

@@ -10,11 +10,6 @@ use App\Models\Raca;
 
 class AnimalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $breadcrumb = [
@@ -22,7 +17,10 @@ class AnimalController extends Controller
             'Animal' => 'false'
         ];
         
-        $animais = Animal::with('raca')->get();
+        $animais = Animal::with('raca')
+                        ->where('id_usuario', session('usuario.id_usuario'))
+                        ->where('flag_excluido', 0)
+                        ->get();
        
         return view('animal.list', [ 'animais' => $animais, 'breadcrumb' => $breadcrumb] );
     }
@@ -35,9 +33,11 @@ class AnimalController extends Controller
             'Detalhes' => 'false'
         ];
 
-        $animal = Animal::with('raca')
-                        ->with('especie')
+        $animal = Animal::where('id_usuario', session('usuario.id_usuario'))
+                        ->where('flag_excluido', 0)
                         ->with('proprietario')
+                        ->with('raca')
+                        ->with('especie')
                         ->findOrFail($idAnimal)
                         ->toArray();
             
@@ -52,9 +52,17 @@ class AnimalController extends Controller
             'Registrar' => 'false'
         ];
 
-        $proprietarios = Proprietario::get();
-        $especies = Especie::get();
-        $racas = Raca::get();
+        $proprietarios = Proprietario::where('id_usuario', session('usuario.id_usuario'))
+                                    ->where('flag_excluido', 0)
+                                    ->get();
+
+        $especies = Especie::where('id_usuario', session('usuario.id_usuario'))
+                          ->where('flag_excluido', 0)
+                          ->get();
+
+        $racas = Raca::where('id_usuario', session('usuario.id_usuario'))
+                    ->where('flag_excluido', 0)
+                    ->get();
 
         return view('animal.create', 
         [ 
@@ -67,8 +75,20 @@ class AnimalController extends Controller
 
     public function store(Request $request)
     {
+
+        // Poderia ser
+        /*
+            $animal = new Animal();
+            $animal->fill($request->all());
+            $animal->save();
+        */
+        // poderia ser também
+        /*
+            Animal::create($request->all());
+        */
+
         $request->validate([
-            'nome' => 'required',
+            'nome' => 'required|min:3|max:40',
         ]);
         
         $animal = new Animal();
@@ -110,8 +130,15 @@ class AnimalController extends Controller
     
     }
 
-    public function destroy($id)
+    public function destroy($idAnimal)
     {
-    
+        $animal = Animal::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idAnimal);
+        $animal->flag_excluido = 1;
+        $animal->save();
+
+        # Mensagem
+        session()->flash('alert', 'excluido');
+
+        return redirect()->route('animal');
     }
 }

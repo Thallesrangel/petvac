@@ -12,7 +12,7 @@
         <li><a href="#"><i class="bi bi-patch-check"></i> Anti-cio</a></li>
         <li><a href="#"><i class="bi bi-scissors"></i> Higiene</a></li>
         <li><a href="#"><i class="bi bi-file-earmark-text"></i> Relatórios</a></li>
-        <li><a href="#"><i class="bi bi-people"></i> Proprietários</a></li>
+        <li><a href="{{ route('proprietario') }}"><i class="bi bi-people"></i> Proprietários</a></li>
         <li><a href="#"><i class="bi bi-heart"></i> Pesos</a></li>
         <li><a href="#"><i class="bi bi-heart"></i> Métricas</a></li>
         <li><a href="#"><i class="bi bi-shop"></i> Fornecedores</a></li>

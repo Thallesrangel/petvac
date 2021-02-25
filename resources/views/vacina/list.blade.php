@@ -29,8 +29,17 @@
                     <button formaction="{{ route('vacina.excluirvarios') }}" type="submit" class="btn btn-sm btn-list-destroy-all" href="#"> <i class="bi bi-trash"></i> <span>Excluir selecionados</span></button>
                 </div>
                 
-                <div class="col-md-3 ml-auto">
-                    DIREITA
+                <div class="col-md-5 ml-auto">
+                    Por página:
+                    <select id="input-raca" name="id_raca">
+                        <option value="">Teste</option>
+                    </select>
+
+                    Ordem:
+                    <select id="input-raca" name="id_raca">
+                        <option value="">Teste</option>
+                    </select>
+
                 </div>
             </div>
         

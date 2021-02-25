@@ -17,11 +17,11 @@
             @include('includes.navbar')
             
             <div class="row">
-                <div class="col-md-2 div-sidebar">
+                <div class="col-md-3 div-sidebar">
                     @include('includes.sidebar')
                 </div>
 
-                <div class="col-sm-12 col-md-10">
+                <div class="col-sm-12 col-md-9">
                     <div class="container-fluid">
                         @include('includes.breadcrumb')
                         @yield('content')

@@ -8,16 +8,36 @@ use App\Models\Proprietario;
 class ProprietarioController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('proprietario.list');
+        $breadcrumb = [
+            'Início' => 'painel',
+            'Proprietáro' => 'false',
+        ];
+        
+        $proprietarios = Proprietario::where('id_usuario', session('usuario.id_usuario'))->paginate(10);
+
+        # Caso preenchido input de pesquisa
+        if ($request->get('search')) {
+            $proprietarios = $this->search($request);
+        }
+       
+        return view('proprietario.list', [ 'proprietarios' => $proprietarios, 'breadcrumb' => $breadcrumb ] );
+    }
+    
+    # Utilizado no input de pesquisa
+    public function search($request)
+    {
+        $search = $request->get('search');
+        $proprietarios = Proprietario::where('nome', 'like','%'.$search.'%')->where('id_usuario', session('usuario.id_usuario'))->paginate(10);
+        return $proprietarios;
     }
 
     public function create()
     {
         $breadcrumb = [
             'Início' => 'painel',
-            'Proprietáro' => 'proprietario',
+            'Proprietário' => 'proprietario',
             'Registrar' => 'false'
         ];
 
@@ -59,6 +79,11 @@ class ProprietarioController extends Controller
     }
 
     public function destroy($id)
+    {
+    
+    }
+
+    public function destroyAll($id)
     {
     
     }

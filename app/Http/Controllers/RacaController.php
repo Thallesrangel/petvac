@@ -63,6 +63,6 @@ class RacaController extends Controller
 
     public function destroy($id)
     {
-        //
+    
     }
 }

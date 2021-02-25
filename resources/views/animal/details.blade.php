@@ -66,33 +66,35 @@
 
             </div>
 
-            <h3>Microchip:</h3>
-            <div class="row">
-                
-                <div class="col-md-2">
-                    <div class="detalhes-card">
-                        <h5>Código:</h5>
-                        <h6>{{ $animal['microchip'] }}</h6>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="detalhes-card">
-                        <h5>Implantação:</h5>
-                        <h6>{{ $animal['data_implantacao'] }}</h6>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="detalhes-card">
-                        <div class="Local Implantação:">
-                            <h5>Registro:</h5>
-                            <h6>{{ $animal['local_implantacao'] }}</h6>
+            @if(isset($animal['microchip']))
+                <h3>Microchip:</h3>
+                <div class="row">
+                    
+                    <div class="col-md-2">
+                        <div class="detalhes-card">
+                            <h5>Código:</h5>
+                            <h6>{{ $animal['microchip'] }}</h6>
                         </div>
                     </div>
-                </div>
 
-            </div>
+                    <div class="col-md-3">
+                        <div class="detalhes-card">
+                            <h5>Implantação:</h5>
+                            <h6>{{ $animal['data_implantacao'] }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="detalhes-card">
+                            <div class="Local Implantação:">
+                                <h5>Registro:</h5>
+                                <h6>{{ $animal['local_implantacao'] }}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            @endif
         </div>
 
     </div>

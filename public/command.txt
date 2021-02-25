@@ -1,0 +1,2 @@
+Dentro deste diretório, pode-se executar para rodar a aplicação, sem php artisan serve:
+php -S localhost:8000
