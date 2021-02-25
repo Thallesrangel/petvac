@@ -46,6 +46,16 @@
     max-width: 50px;
 }
 
+.sidebar-submenu {
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.sidebar-submenu li
+{
+    padding: 10px 20px;
+}
+
 @media (max-width: 900px) {
 
     // todo

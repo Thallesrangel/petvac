@@ -9,6 +9,9 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if (session('usuario.id_usuario')) {
+            return redirect()->route('painel');
+        }
         return view('sign.signin');
     }
 
@@ -35,7 +38,7 @@ class LoginController extends Controller
                 return redirect()->route('painel');
         } else {
             # Mensagem
-            //session()->flash('alert', 'login_incorreto');
+            session()->flash('alert', 'login_incorreto');
 
             return redirect()->route('login');
         }

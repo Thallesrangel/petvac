@@ -6,6 +6,17 @@
     
     <ul class="list-unstyled">
         <li><a href="{{ route('animal') }}"><i class="bi bi-heart"></i> Animais</a></li>
+        <li class="active">
+            <a href="#registrosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="bi bi-tag"></i> Registros</a>
+            <ul class="collapse list-unstyled sidebar-submenu" id="registrosSubmenu">
+                <li>
+                    <a href="{{ route('especie') }}">Espécies</a>
+                </li>
+                <li>
+                    <a href="{{ route('raca') }}">Raças</a>
+                </li>
+            </ul>
+        </li>
         <li><a href="{{ route('vacina') }}"><i class="bi bi-shield"></i> Vacinas</a></li>
         <li><a href="#"><i class="bi bi-eyedropper"></i> Vermifugações</a></li>
         <li><a href="#"><i class="bi bi-exclamation-triangle"></i> Pulgas e Carrapatos</a></li> 

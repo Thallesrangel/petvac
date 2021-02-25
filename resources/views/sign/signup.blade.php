@@ -8,7 +8,7 @@
         <form action="{{ route('usuario.store') }}" method="POST">
             
             @csrf
-
+           
             <img class="fluid-img" src="{{ asset('img/logo.png') }}">
             <h3>Cadastre-se</h3>
             <h4>É rapido e fácil.</h4>
@@ -24,7 +24,9 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-entrar form-control" type="submit">Tudo pronto!</button>
+                
             </div>
+            <a title="Voltar" class="icon-back-login" href="{{ route('login') }}"><i class="bi bi-arrow-left"></i></a>
         </form>
     </div>
 

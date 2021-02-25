@@ -13,6 +13,7 @@
         <link rel='icon' href="{{ asset('img/favicon.png') }}" type='image/x-icon' sizes="16x16" />
 </head>
     <body>
+        @include('includes.message')
         @yield('content')
     </body>
 </html>

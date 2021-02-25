@@ -49,7 +49,7 @@ Route::middleware([Autenticado::class])->group(function () {
             Route::get('/registrar', 'AnimalController@create')->name('animal.registrar');
             Route::post('/salvar', 'AnimalController@store')->name('animal.store');
             Route::get('/detalhes/{id}', 'AnimalController@detalhes')->name('animal.detalhes');
-            //Route::get('/excluir/{id}', 'VeiculosController@excluir')->name('veiculo.excluir');
+            Route::get('/excluir/{id}', 'AnimalController@destroy')->name('animal.excluir');
             //Route::delete('/excluir-varios', 'VeiculosController@excluirVarios')->name('veiculo.excluirvarios');
         });
 

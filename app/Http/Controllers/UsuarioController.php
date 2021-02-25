@@ -32,10 +32,11 @@ class UsuarioController extends Controller
         $usuario->senha = md5($request->senha);
 
         $usuario->save();
+    
+        $usuarioLogin = Usuario::where('id_usuario', '=', $usuario->id_usuario)->first();
+        session()->put('usuario', $usuarioLogin);
 
-        return redirect()->route('login');
-
-        
+        return redirect()->route('painel');
     }
 
     public function show($id)

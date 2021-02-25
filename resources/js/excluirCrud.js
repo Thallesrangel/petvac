@@ -1,12 +1,15 @@
 $(function(){
+
     $('.selectall').click(function(){
         $('.selectbox').prop('checked', $(this).prop('checked'));
         $('.selectall2').prop('checked', $(this).prop('checked'));
     });
+
     $('.selectall2').click(function(){
         $('.selectbox').prop('checked', $(this).prop('checked'));
         $('.selectall').prop('checked', $(this).prop('checked'));
     });
+
     $('.selectbox').change(function()
     {
         var total = $('.selectbox').length;

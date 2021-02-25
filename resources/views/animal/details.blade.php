@@ -9,7 +9,7 @@
                 <p>{{ $animal['identificacao'] }}</p>
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="#" class="btn btn-default">Editar perfil</a></li>
-                    <li class="list-inline-item"><a href="#" class="btn btn-default">Excluir perfil</a></li>
+                    <li class="list-inline-item"><a href="{{ route('animal.excluir', $animal['id_animal']) }}" class="btn btn-default">Excluir perfil</a></li>
                 <ul>
             </div>
 

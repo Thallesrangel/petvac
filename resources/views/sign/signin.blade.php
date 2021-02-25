@@ -32,7 +32,7 @@
                     <hr>
 
                     <div class="form-group">
-                        <a href="#" class="btn btn-registrar text-white">Criar conta</a>
+                        <a href="{{ route('usuario.registrar') }}" class="btn btn-registrar text-white">Criar conta</a>
                     </div>
                 </form>
         </div>

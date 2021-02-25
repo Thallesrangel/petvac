@@ -9,6 +9,7 @@
 {
     margin-top: 15px;
     font-size: 36px;
+    font-weight: 600;
 }
 
 .col-login-right
@@ -25,6 +26,11 @@
     padding: 15px 0px;
 }
 
+.col-login-right hr
+{
+    margin: 15px 0px;
+}
+
 .div-login-form
 {   
     background-color: #FFF;
@@ -39,11 +45,11 @@
 
 .btn-entrar
 {
-    background-color: #f45a6a;
-    font-size: 22px;
-    color: #FFF;
-    border-radius: 8px;
-    font-weight: 610;
+    background-color: #f45a6a !important;
+    font-size: 22px !important;
+    color: #FFF !important;
+    border-radius: 8px !important;
+    font-weight: 610 !important;
 }
 
 .btn-registrar

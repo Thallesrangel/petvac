@@ -15,7 +15,9 @@ class ProprietarioController extends Controller
             'Proprietáro' => 'false',
         ];
         
-        $proprietarios = Proprietario::where('id_usuario', session('usuario.id_usuario'))->paginate(10);
+        $proprietarios = Proprietario::where('id_usuario', session('usuario.id_usuario'))
+                                      ->where('flag_excluido', 0)
+                                      ->paginate(10);
 
         # Caso preenchido input de pesquisa
         if ($request->get('search')) {

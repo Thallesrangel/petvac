@@ -68,8 +68,7 @@
                     </tr>
                 </tfoot>
             </table>
-            {{ $proprietarios->links() }}
-            <span>Mostrando 10 de 100 registros.</span>
+            <span class="p-1">{{ $proprietarios->links() }}</span>
            
         </form>
         

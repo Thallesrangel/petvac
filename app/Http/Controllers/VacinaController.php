@@ -17,7 +17,11 @@ class VacinaController extends Controller
             'Vacinas' => 'false'
         ];
         
-        $animal = Animal::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idAnimal)->toArray();
+        $animal = Animal::where('id_usuario', session('usuario.id_usuario'))
+                        ->where('flag_excluido', 0)
+                        ->findOrFail($idAnimal)
+                        ->toArray();
+        
         $vacinas = Vacina::where('id_usuario', session('usuario.id_usuario'))
                         ->where('flag_excluido', 0)
                         ->whereIdAnimal($idAnimal)
@@ -39,7 +43,9 @@ class VacinaController extends Controller
             'Animal' => 'false'
         ];
      
-        $animais = Animal::where('id_usuario', session('usuario.id_usuario'))->get();
+        $animais = Animal::where('id_usuario', session('usuario.id_usuario'))
+                        ->where('flag_excluido', 0)
+                        ->get();
         
         return view('vacina.animal', [ 'animais' => $animais, 'breadcrumb' => $breadcrumb] );
     }
@@ -51,7 +57,7 @@ class VacinaController extends Controller
             'Vacina' => 'vacina',
             'Registrar'=> 'false'
         ];
-
+        
         return view('vacina.create', [ 'breadcrumb' => $breadcrumb] );
     }
 
@@ -75,6 +81,9 @@ class VacinaController extends Controller
         $vacina->data_registro = now()->toDateString('Y-m-d');
 
         $vacina->save();
+        
+        # Mensagem
+        session()->flash('alert', 'registrado');
         
         return redirect()->route('vacina.animal', $request->id_animal);
     }
@@ -114,7 +123,7 @@ class VacinaController extends Controller
         Vacina::whereIn('id_vacina', explode(',', $all))->update(['flag_excluido' => 1]);
 
         # Mensagem
-        session()->flash('alert', 'excluido');
+        session()->flash('alert', 'excluidos');
         
         return redirect()->route('vacina');
     }
