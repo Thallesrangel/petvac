@@ -22,8 +22,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-especie">Espécie</label>
-                                <input type="text" id="input-especie" class="form-control" name="especie">
+                                <label class="form-control-label" for="input-especie">Espécie *</label>
+                                <input type="text" id="input-especie" class="form-control" name="especie" required>
                             </div>
                         </div>
                     </div>

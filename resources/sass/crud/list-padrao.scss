@@ -15,36 +15,15 @@ hr
     padding: 10px;
 }
 
-.div-list .row a
+.div-list .row i
 {
-    margin: 0px 10px;
-}
-
-.div-list .row a i
-{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .div-list h4
 {
     font-weight: 600;
     color: #2C3E50;
-}
-
-.btn-list-destroy-all
-{
-    background-color: #3742FA;
-}
-
-.btn-list-destroy-all i
-{
-    color: #FFF;
-    font-size: 18px;
-}
-
-.btn-list-destroy-all span
-{
-   color: #FFF;
 }
 
 .icon-crud
@@ -57,8 +36,6 @@ hr
 {
     background-color: #FFF;
     border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .div-main-crud p
@@ -76,7 +53,7 @@ hr
 {
     color: #34495e;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 5px;
     padding-top:20px;
     padding-bottom: 20px;
 }

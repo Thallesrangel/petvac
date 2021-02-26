@@ -12563,6 +12563,10 @@ body {
   border: 1px solid #BDC3C7;
 }
 
+.btn-light {
+  border: 1px solid #dcdde1;
+}
+
 .div-list {
   background-color: #FFF;
   border-radius: 8px;
@@ -12577,30 +12581,13 @@ hr {
   padding: 10px;
 }
 
-.div-list .row a {
-  margin: 0px 10px;
-}
-
-.div-list .row a i {
-  font-size: 18px;
+.div-list .row i {
+  font-size: 20px;
 }
 
 .div-list h4 {
   font-weight: 600;
   color: #2C3E50;
-}
-
-.btn-list-destroy-all {
-  background-color: #3742FA;
-}
-
-.btn-list-destroy-all i {
-  color: #FFF;
-  font-size: 18px;
-}
-
-.btn-list-destroy-all span {
-  color: #FFF;
 }
 
 .icon-crud {
@@ -12611,8 +12598,6 @@ hr {
 .div-main-crud {
   background-color: #FFF;
   border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .div-main-crud p {
@@ -12628,7 +12613,7 @@ hr {
 .table {
   color: #34495e;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
 }

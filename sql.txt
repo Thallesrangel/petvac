@@ -13,6 +13,8 @@ create table tbusuario(
     flag_excluido int default 0
 );
 
+-- inserindo usuario Administrador
+
 INSERT INTO `tbusuario` (`id_usuario`,`nome`,`email`,`senha`,`data_nascimento`) 
 VALUES (NULL, 'Administrador', 'rangelthr@gmail.com','202cb962ac59075b964b07152d234b70', NULL);
 
@@ -46,6 +48,8 @@ create table tbproprietario(
     id_proprietario int primary key auto_increment,
     id_usuario int not null,
     nome varchar(220) not null,
+    cpf varchar(100) not null,
+    email varchar(220) not null,
     flag_excluido int default 0,
     FOREIGN KEY (id_usuario) REFERENCES tbusuario(id_usuario)
 );

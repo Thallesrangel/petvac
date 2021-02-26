@@ -26,7 +26,7 @@
             
             <div class="row align-items-center">
                 <div clas="col-md-2">
-                    <button formaction="{{ route('vacina.excluirvarios') }}" type="submit" class="btn btn-sm btn-list-destroy-all" href="#"> <i class="bi bi-trash"></i> <span>Excluir selecionados</span></button>
+                    <button formaction="{{ route('vacina.excluirvarios') }}" type="submit" class="btn btn-sm btn-light"> <i class="bi bi-trash"></i> <span>Excluir selecionados</span></button>
                 </div>
                 
                 <div class="col-md-5 ml-auto">
@@ -67,7 +67,7 @@
                             <td>{{ $item['veterinario'] }}</td>
                             <td>{{ $item['registro_crmv'] }}</td>
                             <td>
-                                <a href="{{ $item['id_vacina'] }}" class="icon-crud" href=""><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{ route('vacina.editar', $item['id_vacina']) }}" class="icon-crud" href=""><i class="bi bi-pencil-square"></i></a>
                                 <a href="{{ route('vacina.excluir', $item['id_vacina'])}}" class="icon-crud" href=""><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>

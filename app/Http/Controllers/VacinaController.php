@@ -88,20 +88,42 @@ class VacinaController extends Controller
         return redirect()->route('vacina.animal', $request->id_animal);
     }
 
-    public function show($id)
+    public function edit($idVacina)
     {
-    
+        $breadcrumb = [
+            'Início' => 'painel',
+            'Vacina' => 'vacina',
+            'Editar' => 'false'
+        ];
+
+        $vacina = Vacina::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idVacina)->toArray();
+        $animal = Animal::where('id_usuario', session('usuario.id_usuario'))->where('id_usuario', $vacina['id_animal'])->first();
+        
+        return view('vacina.edit', [ 'vacina' => $vacina, 'animal' => $animal, 'breadcrumb' => $breadcrumb ] );
     }
 
-
-    public function edit($id)
+    public function update(Request $request, $idVacina)
     {
-    
-    }
+        $request->validate([
+            'vacina' => 'required',
+            'dose' => 'required',
+            'data_aplicacao' => 'required'
+        ]);
 
-    public function update(Request $request, $id)
-    {
-    
+        $data = [
+            'vacina' => $request->vacina,
+            'dose' => $request->dose,
+            'data_aplicacao' => $request->data_aplicacao,
+            'data_revacinacao' => $request->data_revacinacao,
+            'veterinario' => $request->veterinario,
+            'registro_crmv' => $request->registro_crmv
+        ];
+
+        Vacina::where('id_usuario', session('usuario.id_usuario'))->where('id_vacina', $idVacina)->update($data);
+
+        session()->flash('alert', 'editado');
+        
+        return redirect()->route('vacina.animal', $request->id_animal);  
     }
 
     public function destroy($idVacina)

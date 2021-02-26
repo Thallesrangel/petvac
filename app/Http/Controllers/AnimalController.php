@@ -89,6 +89,9 @@ class AnimalController extends Controller
 
         $request->validate([
             'nome' => 'required|min:3|max:40',
+            'id_proprietario' => 'required',
+            'identificacao' => 'required',
+            'data_nascimento' => 'required'
         ]);
         
         $animal = new Animal();
@@ -122,12 +125,57 @@ class AnimalController extends Controller
 
     public function edit($id)
     {
-    
+        $breadcrumb = [
+            'Início' => 'painel',
+            'Animal' => 'animal',
+            'Editar' => 'false'
+        ];
+
+        $animal = Animal::findOrFail($id);
+
+        $proprietarios = Proprietario::where('id_usuario', session('usuario.id_usuario'))
+                                    ->where('flag_excluido', 0)
+                                    ->get();
+
+        $especies = Especie::where('id_usuario', session('usuario.id_usuario'))
+                          ->where('flag_excluido', 0)
+                          ->get();
+
+        $racas = Raca::where('id_usuario', session('usuario.id_usuario'))
+                    ->where('flag_excluido', 0)
+                    ->get();
+
+        return view('animal.edit', 
+        [ 
+            'animal' => $animal,
+            'proprietarios' => $proprietarios,
+            'especies' => $especies,
+            'racas' => $racas, 
+            'breadcrumb' => $breadcrumb  
+        ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $idAnimal)
     {
-    
+        /*
+        $request->validate([
+            //
+        ]);
+
+        
+        $data = [
+            'nome' => $request->razao_social,
+            'data_nascimento' => $request->nome_fantasia,
+            'microchip' => $request->cnpj
+        ];
+
+        Animal::whereIdAnimal($idAnimal)->update($data);
+        
+        # Mensagem
+        session()->flash('alert', 'editado');
+        return redirect()->route('animal');  
+        */
+
     }
 
     public function destroy($idAnimal)

@@ -8,9 +8,13 @@
         <div class="col-md-6 text-md-left text-center">
             <h4>Proprietários</h4>
         </div>
-        <div class="col-md-6 text-md-right text-center">
-            <a href="{{ route('proprietario.registrar') }}" class="btn btn-sm btn-secondary"><i class="bi bi-plus"></i> <span>Registrar</span></a>
-            <a href="#" class="btn btn-sm btn-secondary"><i class="bi bi-printer"></i> <span>Imprimir</span></a>
+        <div class="col-md-4 ml-auto form-inline">
+            <form method="get">
+                @csrf
+                @method('get')
+                <input name="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Pesquisar">
+                <button formaction="{{ route('proprietario') }}" class="btn btn btn-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
         </div>
     </div>
     <hr>
@@ -21,17 +25,10 @@
             @method('DELETE')
             
             <div class="row align-items-center">
-                <div clas="col-md-2">
-                    <button formaction="{{ route('proprietario.excluirvarios') }}" type="submit" class="btn btn-sm btn-list-destroy-all" href="#"> <i class="bi bi-trash"></i> <span>Excluir selecionados</span></button>
-                </div>
-
-                <div class="col-md-4 ml-auto form-inline">
-                    <form method="get">
-                        @csrf
-                        @method('get')
-                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Pesquisar">
-                        <button formaction="{{ route('proprietario') }}" class="btn btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
+                <div class="col-sm-12 col-md-6 text-md-left">
+                    <a href="{{ route('proprietario.registrar') }}" class="btn btn-sm btn-light" title="Registrar"><i class="bi bi-plus-square"></i></a>
+                    <a href="#" class="btn btn-sm btn-light" title="Imprimir"><i class="bi bi-printer"></i></a>
+                    <button formaction="{{ route('proprietario.excluirvarios') }}" type="submit" class="btn btn-sm btn-light" title="Excluir selecionados"> <i class="bi bi-trash"></i></button>
                 </div>
             </div>
         
@@ -50,9 +47,11 @@
                         <tr>
                             <td><input type="checkbox" name="ids[]" value="{{ $item['id_proprietario'] }}" class="selectbox"></td>
                             <td>{{ $item['nome'] }}</td>
+                            <td>{{ $item['cpf'] }}</td>
+                            <td>{{ $item['email'] }}</td>
                             <td>
-                                <a href="{{ $item['id_proprietario'] }}" class="icon-crud" href=""><i class="bi bi-pencil-square"></i></a>
-                                <a href="{{ route('proprietario.excluir', $item['id_proprietario'])}}" class="icon-crud" href=""><i class="bi bi-trash"></i></a>
+                                <a href="{{ route('proprietario.editar', $item['id_proprietario']) }}" class="icon-crud"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{ route('proprietario.excluir', $item['id_proprietario']) }}" class="icon-crud"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

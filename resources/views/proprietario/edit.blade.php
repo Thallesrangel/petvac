@@ -7,13 +7,13 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-8">
-                    <h3 class="mb-0">Registrar proprietário</h3>
+                    <h3 class="mb-0">Editar proprietário</h3>
                 </div>
             </div>
         </div>
         <div class="card-body">
             
-            <form action="{{ route('proprietario.store') }}" method="POST">
+            <form action="{{ route('proprietario.atualizar', $proprietario['id_proprietario']) }}" method="POST">
 
                 @csrf
 
@@ -22,22 +22,22 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-nome">Nome *</label>
-                                <input type="text" id="input-nome" class="form-control" name="nome" required>
+                                <label class="form-control-label" for="input-nome">Nome</label>
+                                <input type="text" id="input-nome" class="form-control" name="nome" value="{{ $proprietario['nome'] }}" required>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-cpf">CPF *</label>
-                                <input type="text" id="input-cpf" class="form-control" name="cpf" required>
+                                <input type="text" id="input-cpf" class="form-control" name="cpf" value="{{ $proprietario['cpf'] }}" required>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-email">Email *</label>
-                                <input type="email" id="input-email" class="form-control" name="email" required>
+                                <label class="form-control-email" for="input-nome">Email *</label>
+                                <input type="email" id="input-email" class="form-control" name="email" value="{{ $proprietario['email'] }}" required>
                             </div>
                         </div>
                     </div>

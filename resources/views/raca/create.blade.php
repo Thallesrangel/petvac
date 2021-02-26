@@ -22,8 +22,8 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-especie">Espécie</label>
-                                <select class="form-control select2" id="input-especie" name="id_especie">
+                                <label class="form-control-label" for="input-especie">Espécie *</label>
+                                <select class="form-control select2" id="input-especie" name="id_especie" required>
                                     @foreach($especies as $item)
                                         <option value="{{ $item['id_especie']}}">{{ $item['especie'] }}</option>
                                     @endforeach
@@ -33,8 +33,8 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-raca">Raça</label>
-                                <input type="text" id="input-raca" class="form-control" name="raca">
+                                <label class="form-control-label" for="input-raca">Raça *</label>
+                                <input type="text" id="input-raca" class="form-control" name="raca" required>
                             </div>
                         </div>
                     </div>

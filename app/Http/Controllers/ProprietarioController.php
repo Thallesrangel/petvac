@@ -50,16 +50,19 @@ class ProprietarioController extends Controller
     {
         $request->validate([
             'nome' => 'required',
+            'cpf' => 'required',
+            'email' => 'required'
         ]);
         
         $proprietario = new Proprietario();
 
         $proprietario->id_usuario = session('usuario.id_usuario');
         $proprietario->nome = $request->nome;
+        $proprietario->cpf = $request->cpf;
+        $proprietario->email = $request->email;
         $proprietario->save();
 
-        # Mensagem
-        //session()->flash('alert', 'registrado');
+        session()->flash('alert', 'registrado');
 
         return redirect()->route('proprietario');
     }
@@ -69,24 +72,63 @@ class ProprietarioController extends Controller
     
     }
 
-    public function edit($id)
+    public function edit($idProprietario)
     {
-    
+        $breadcrumb = [
+            'Início' => 'painel',
+            'Proprietário' => 'proprietario',
+            'Editar' => 'false'
+        ];
+
+        $proprietario = Proprietario::findOrFail($idProprietario)->toArray();
+        
+        return view('proprietario.edit', [ 'proprietario' => $proprietario, 'breadcrumb' => $breadcrumb ] );
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $idProprietario)
     {
-    
+        
+        $request->validate([
+            'nome' => 'required',
+            'cpf' => 'required',
+            'email' => 'required'
+        ]);
+
+        
+        $data = [
+            'nome' => $request->nome,
+            'cpf' => $request->cpf,
+            'email' => $request->email
+        ];
+
+        Proprietario::where('id_proprietario',$idProprietario)->update($data);
+
+        session()->flash('alert', 'editado');
+        
+        return redirect()->route('proprietario');  
     }
 
-    public function destroy($id)
+    public function destroy($idProprietario)
     {
-    
+        $proprietario = Proprietario::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idProprietario);
+        $proprietario->flag_excluido = 1;
+        $proprietario->save();
+
+        session()->flash('alert', 'excluido');
+
+        return redirect()->route('proprietario');
     }
 
-    public function destroyAll($id)
+    public function destroyAll(Request $request)
     {
-    
+        $ids = $request->get('ids');
+        $all = implode(',', $ids);
+        Proprietario::whereIn('id_proprietario', explode(',', $all))->update(['flag_excluido' => 1]);
+
+        # Mensagem
+        session()->flash('alert', 'excluidos');
+        
+        return redirect()->route('proprietario');
     }
 }

@@ -7,7 +7,7 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-8">
-                    <h3 class="mb-0">Registrar Animal</h3>
+                    <h3 class="mb-0">Registrar Vacina</h3>
                 </div>
             </div>
         </div>
@@ -23,22 +23,22 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-vacina">Vacina</label>
-                                <input type="text" id="input-vacina" class="form-control" name="vacina">
+                                <label class="form-control-label" for="input-vacina">Vacina *</label>
+                                <input type="text" id="input-vacina" class="form-control" name="vacina" required>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-dose">Dose</label>
-                                <input type="text" id="input-dose" class="form-control" name="dose">
+                                <label class="form-control-label" for="input-dose">Dose *</label>
+                                <input type="text" id="input-dose" class="form-control" name="dose" required>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-data-aplicacao">Data vacinação</label>
-                                <input type="date" id="input-data-aplicacao" class="form-control" name="data_aplicacao">
+                                <label class="form-control-label" for="input-data-aplicacao">Data vacinação *</label>
+                                <input type="date" id="input-data-aplicacao" class="form-control" name="data_aplicacao" required>
                             </div>
                         </div>
 
