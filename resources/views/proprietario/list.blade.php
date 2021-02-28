@@ -8,11 +8,12 @@
         <div class="col-md-6 text-md-left text-center">
             <h4>Proprietários</h4>
         </div>
+        
         <div class="col-md-4 ml-auto form-inline">
             <form method="get">
                 @csrf
                 @method('get')
-                <input name="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Pesquisar">
+                <input name="busca" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Pesquisar">
                 <button formaction="{{ route('proprietario') }}" class="btn btn btn-light my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>

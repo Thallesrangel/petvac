@@ -27,5 +27,6 @@
         <li><a href="#"><i class="bi bi-heart"></i> Pesos</a></li>
         <li><a href="#"><i class="bi bi-heart"></i> Métricas</a></li>
         <li><a href="#"><i class="bi bi-shop"></i> Fornecedores</a></li>
+        <li><a href="#"><i class="bi bi-chat-left"></i> Suporte</a></li>
     </ul>
 </nav>
