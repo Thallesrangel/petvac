@@ -4,63 +4,89 @@
     <div class="home">
         <h5>Registros totais</h5>
 
-        <div class="col-12">
-           
-              <div class="card-body">
-                <div class="row">
-
-                    <div class="col-lg-6 col-xl-3 col-sm-6 col-sm-12 cards-home">
-                        <div class="d-flex align-items-center">
-                            <span class="card-icon d-flex justify-content-center mr-3">
-                                <i class="bi bi-heart"></i>
-                            </span>
-                            <div class="text-right">
-                                <h3>{{ $animal_total }}</h3>
-                                <p>Animais</p>
-                            </div>
+        <div class="row">
+         
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                  
+                  <div class="card-body">
+                    <div class="row">
+                     
+                      <div class="col-auto">
+                        <div class="card-icon text-center">
+                          <i class="bi bi-heart"></i>
                         </div>
+                      </div>
+                      <div class="col text-right">
+                        <span class="h3 font-weight-bold mb-0">{{ $animal_total }}</span>
+                        <p class="card-title text-muted mb-0">Animais</p>
+                      </div>
                     </div>
-
-                    <div class="col-lg-6 col-xl-3 col-sm-6 col-12 cards-home">
-                        <div class="d-flex align-items-center">
-                            <span class="card-icon d-flex justify-content-center mr-3">
-                                <i class="bi bi-shield"></i>
-                            </span>
-                            <div class="text-right">
-                                <h3>{{ $vacina_total }}</h3>
-                                <p>Vacinas</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-xl-3 col-sm-6 col-12 cards-home">
-                        <div class="d-flex align-items-center">
-                            <span class="card-icon d-flex justify-content-center mr-3">
-                                <i class="bi bi-droplet"></i>
-                            </span>
-                            <div class="text-right">
-                                <h3>0</h3>
-                                <p>Vermifugos</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-xl-3 col-sm-6 col-12 cards-home">
-                        <div class="d-flex align-items-center">
-                            <span class="card-icon d-flex justify-content-center mr-3">
-                                <i class="bi bi-exclamation-triangle"></i>
-                            </span>
-                            <div class="text-right">
-                                <h3>0</h3>
-                                <p>Parasitas</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+                  </div>
                 </div>
             </div>
-        </div>
 
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                
+                  <div class="card-body">
+                    <div class="row">
+                     
+                      <div class="col-auto">
+                        <div class="card-icon text-center">
+                            <i class="bi bi-shield"></i>
+                        </div>
+                      </div>
+                      <div class="col text-right">
+                        <span class="h3 font-weight-bold mb-0">{{ $vacina_total }}</span>
+                        <p class="card-title text-muted mb-0">Vacinas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                
+                  <div class="card-body">
+                    <div class="row">
+                     
+                      <div class="col-auto">
+                        <div class="card-icon text-center">
+                            <i class="bi bi-droplet"></i>
+                        </div>
+                      </div>
+                      <div class="col text-right">
+                        <span class="h3 font-weight-bold mb-0">10</span>
+                        <p class="card-title text-muted mb-0">Vermifugos</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="card card-stats">
+                
+                  <div class="card-body">
+                    <div class="row">
+                     
+                      <div class="col-auto">
+                        <div class="card-icon text-center">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+                      </div>
+                      <div class="col text-right">
+                        <span class="h3 font-weight-bold mb-0">2</span>
+                        <p class="card-title text-muted mb-0">Parasitas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          </div>
         <h5>Médias</h5>
 
     </div>

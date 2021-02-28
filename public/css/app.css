@@ -12268,27 +12268,12 @@ body {
   color: #2C3E50;
 }
 
-.cards-home div {
-  background-color: #FFF;
-  padding: 5px 20px;
-  border-radius: 8px;
-}
-
-.cards-home div h3 {
-  font-weight: 650;
-  color: #2C3E50;
-}
-
-.cards-home div p {
-  color: #2C3E50;
-}
-
 .card-icon {
   background-color: #3742FA;
   color: #FFF;
   border-radius: 8px;
   font-size: 28px;
-  height: 46px;
+  height: 48px;
   width: 48px;
 }
 
@@ -12332,7 +12317,7 @@ body {
 .sidebar ul li a i {
   font-size: 22px;
   padding: 8px 10px;
-  color: #2c3e50;
+  color: #f45a6a;
 }
 
 .perfil {
