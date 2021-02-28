@@ -18,7 +18,7 @@
             </ul>
         </li>
         <li><a href="{{ route('vacina') }}"><i class="bi bi-shield"></i> Vacinas</a></li>
-        <li><a href="#"><i class="bi bi-eyedropper"></i> Vermifugações</a></li>
+        <li><a href="#"><i class="bi bi-droplet"></i> Vermifugações</a></li>
         <li><a href="#"><i class="bi bi-exclamation-triangle"></i> Pulgas e Carrapatos</a></li> 
         <li><a href="#"><i class="bi bi-patch-check"></i> Anti-cio</a></li>
         <li><a href="#"><i class="bi bi-scissors"></i> Higiene</a></li>
