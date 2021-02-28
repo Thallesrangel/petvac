@@ -60,15 +60,10 @@ class AnimalController extends Controller
                           ->where('flag_excluido', 0)
                           ->get();
 
-        $racas = Raca::where('id_usuario', session('usuario.id_usuario'))
-                    ->where('flag_excluido', 0)
-                    ->get();
-
         return view('animal.create', 
         [ 
             'proprietarios' => $proprietarios,
             'especies' => $especies,
-            'racas' => $racas, 
             'breadcrumb' => $breadcrumb  
         ]);
     }
@@ -91,7 +86,9 @@ class AnimalController extends Controller
             'nome' => 'required|min:3|max:40',
             'id_proprietario' => 'required',
             'identificacao' => 'required',
-            'data_nascimento' => 'required'
+            'data_nascimento' => 'required',
+            'id_especie' => 'required',
+            'id_raca' => 'required'
         ]);
         
         $animal = new Animal();

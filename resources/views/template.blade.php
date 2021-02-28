@@ -9,8 +9,9 @@
         <meta name="reply-to" content="rangelthr@gmail.com">
         <link rel="stylesheet" href="/css/app.css">
         <script src="/js/app.js"></script>
-        <title>Petvac - NOVO</title>
+        <title>Petvac - Painel</title>
         <link rel='icon' href="{{ asset('img/favicon.png') }}" type='image/x-icon' sizes="16x16" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
     <body class="body-painel">
         @include('includes.message')
@@ -18,11 +19,11 @@
             @include('includes.navbar')
             
             <div class="row">
-                <div class="col-md-3 div-sidebar">
+                <div class="col-md-2 div-sidebar">
                     @include('includes.sidebar')
                 </div>
 
-                <div class="col-sm-12 col-md-9">
+                <div class="col-sm-12 col-md-10">
                     <div class="container-fluid">
                         @include('includes.breadcrumb')
                         @yield('content')

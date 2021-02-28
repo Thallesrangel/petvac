@@ -60,7 +60,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-especie">Espécie *</label>
-                                <select class="form-control select2" id="input-especie" name="id_especie" required>
+                                <select class="form-control select2" id="input-especie" onchange="pegarRacasPorEspecie(this)" name="id_especie" required>
+                                    <option>Selecione uma espécie</option>
                                     @foreach($especies as $item)
                                         <option value="{{ $item['id_especie']}}">{{ $item['especie'] }}</option>
                                     @endforeach
@@ -71,11 +72,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-raca">Raça *</label>
-                                <select class="form-control select2" id="input-raca" name="id_raca" required>
-                                    @foreach($racas as $item)
-                                        <option value="{{ $item['id_raca']}}">{{ $item['raca'] }}</option>
-                                    @endforeach
-                                </select>
+                                <select class="form-control select2" id="input-raca" name="id_raca" required></select>
                             </div>
                         </div>
 
@@ -83,6 +80,13 @@
                             <div class="form-group">
                                 <label class="form-control-label" for="input-cor">Cor *</label>
                                 <input type="text" id="input-cor" class="form-control" name="cor" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-img">Foto perfil</label>
+                                <input type="file" id="input-img" class="form-control" name="img_url">
                             </div>
                         </div>
 
@@ -161,15 +165,44 @@
                                 <input type="text" id="input-local-implantacao" class="form-control" name="local_implantacao">
                             </div>
                         </div>
+                        
                     </div>
-                    <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
-                    <a class="btn btn-link" href="{{ route('animal') }}">Cancelar</a>
+                    <button class="btn btn btn-primary" type="submit">Salvar</button>
+                    <a class="btn btn btn-light" href="{{ route('animal') }}">Cancelar</a>
 
                 </div>
 
             </form>
         </div>
     </div>
+
 </div>
+<script type="text/javascript">
+
+    function pegarRacasPorEspecie(especie) {
+
+    //var item = $('#especie').trigger("change").val();
+    var item = especie.value;
+	
+    $.ajax({
+		url: 'http://127.0.0.1:8000/painel/raca/raca-especie',
+		type:'GET',
+		data:{id_especie:item, "_token": $('#token').val()},
+		dataType:'json',
+		success:function(json) {
+			var html = '';
+
+			for(var i in json) {
+                //console.log(json);
+                if(json[i].id_raca) {
+                    html += '<option value="'+json[i].id_raca+'">'+json[i].raca+'</option>';
+                }
+			}
+            $("#input-raca").html(html);
+		}
+	});
+}
+
+</script>
 
 @endsection

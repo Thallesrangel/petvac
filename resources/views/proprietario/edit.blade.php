@@ -30,7 +30,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-cpf">CPF *</label>
-                                <input type="text" id="input-cpf" class="form-control" name="cpf" value="{{ $proprietario['cpf'] }}" required>
+                                <input type="text" id="input-cpf" class="form-control cpf" name="cpf" value="{{ $proprietario['cpf'] }}" required>
                             </div>
                         </div>
 
@@ -42,8 +42,8 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
-                    <a class="btn btn-link" href="{{ route('proprietario') }}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                    <a class="btn btn-light" href="{{ route('proprietario') }}">Cancelar</a>
                 </div>
 
             </form>

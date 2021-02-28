@@ -21,7 +21,7 @@ class UsuarioController extends Controller
     {
         $request->validate([
             'nome' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'senha' => 'required'
         ]);
 

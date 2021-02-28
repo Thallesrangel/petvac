@@ -54,7 +54,7 @@ hr
     color: #34495e;
     border-collapse: collapse;
     margin-top: 5px;
-    padding-top:20px;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -69,4 +69,10 @@ hr
     border-bottom: 1px solid #e9ecef;
     white-space: nowrap;
     font-weight: 620;
+}
+
+.form-select
+{
+    padding: 5px;
+    border: 1px solid  #dee2e6;
 }

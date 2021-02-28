@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{ route('animal.registrar') }}" class="btn btn-sm btn-primary">Registrar</a>
+<a href="{{ route('animal.registrar') }}" class="btn btn-primary">+ Registrar animal</a>
 
 <div class="row">
     
@@ -17,6 +17,10 @@
         </div>
 
     @endforeach
+
+    
 </div>
 
 @endsection
+
+<!-- { { $foo ?? 'default'} } -->

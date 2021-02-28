@@ -31,13 +31,18 @@
                 
                 <div class="col-md-5 ml-auto">
                     Por página:
-                    <select id="input-raca" name="id_raca">
-                        <option value="">Teste</option>
+                    <select class="form-select" id="input-raca" name="por_pagina">
+                        <option value="10">10</option>
+                        <option value="10">20</option>
+                        <option value="10">30</option>
+                        <option value="10">50</option>
+                        <option value="10">100</option>
                     </select>
 
                     Ordem:
-                    <select id="input-raca" name="id_raca">
-                        <option value="">Teste</option>
+                    <select class="form-select" id="input-raca" name="ordem">
+                        <option value="asc">Crescente</option>
+                        <option value="desc">Decrescente</option>
                     </select>
 
                 </div>
@@ -61,7 +66,7 @@
                         <tr>
                             <td><input type="checkbox" name="ids[]" value="{{ $item['id_vacina'] }}" class="selectbox"></td>
                             <td>{{ $item['vacina'] }}</td>
-                            <td>{{ $item['dose'] }}</td>
+                            <td class="dose">{{ $item['dose'] }}</td>
                             <td>{{ $item['data_aplicacao'] }}</td>
                             <td>{{ $item['data_revacinacao'] }}</td>
                             <td>{{ $item['veterinario'] }}</td>

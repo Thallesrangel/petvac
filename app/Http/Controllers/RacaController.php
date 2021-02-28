@@ -88,6 +88,13 @@ class RacaController extends Controller
     public function destroy($idRaca)
     {
         $raca = Raca::where('id_usuario', session('usuario.id_usuario'))->findOrFail($idRaca);
+
+        # caso for um registro padrao = 1, criado pelo administrador, um usuário comum não pode excluí-lo
+        if ($raca->flag_padrao == 1) {
+            session()->flash('alert', 'excluido_impedido');
+            return redirect()->route('raca');
+        }
+
         $raca->flag_excluido = 1;
         $raca->save();
 
@@ -99,6 +106,13 @@ class RacaController extends Controller
     public function destroyAll(Request $request)
     {
         $ids = $request->get('ids');
+
+        if(empty($ids))
+        {
+            session()->flash('alert', 'excluir_sem_id');
+            return redirect()->route('raca');
+        }
+
         $all = implode(',', $ids);
         Raca::whereIn('id_raca', explode(',', $all))->update(['flag_excluido' => 1]);
 
@@ -106,5 +120,16 @@ class RacaController extends Controller
         session()->flash('alert', 'excluidos');
         
         return redirect()->route('raca');
+    }
+
+    // Retorna todas as raças de uma espécie
+    public function racaEspecie() {
+      
+        if (isset($_GET['id_especie'])) {
+            $idEspecie = $_GET['id_especie'];
+            $array = Raca::where('id_especie', $idEspecie)->get();
+
+            echo json_encode($array);
+        }
     }
 }

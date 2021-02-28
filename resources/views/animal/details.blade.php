@@ -53,14 +53,14 @@
                 <div class="col-md-2">
                     <div class="detalhes-card">
                         <h5>Filhotes:</h5>
-                        <h6>{{ $animal['flag_filhote'] == '1' ? 'Não' : 'Sim'  }}</h6>
+                        <h6>{{ $animal['flag_filhote'] == '2' ? 'Não' : 'Sim'  }}</h6>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="detalhes-card">
                         <h5>Registro:</h5>
-                        <h6>ESTÁTICO</h6>
+                        <h6>{{ $animal['data_registro'] }}</h6>
                     </div>
                 </div>
 

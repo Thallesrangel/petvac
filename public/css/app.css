@@ -12295,9 +12295,8 @@ body {
 }
 
 .sidebar ul li a:hover {
-  color: #FFF;
   border-radius: 5px;
-  background-color: #f67280;
+  background-color: #FFF;
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1), 4px 4px 15px -5px rgba(21, 114, 232, 0.4) !important;
 }
 
@@ -12628,6 +12627,11 @@ hr {
   border-bottom: 1px solid #e9ecef;
   white-space: nowrap;
   font-weight: 620;
+}
+
+.form-select {
+  padding: 5px;
+  border: 1px solid #dee2e6;
 }
 
 .card-header {

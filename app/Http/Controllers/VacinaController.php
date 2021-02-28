@@ -45,7 +45,7 @@ class VacinaController extends Controller
      
         $animais = Animal::where('id_usuario', session('usuario.id_usuario'))
                         ->where('flag_excluido', 0)
-                        ->get();
+                        ->paginate(12);
         
         return view('vacina.animal', [ 'animais' => $animais, 'breadcrumb' => $breadcrumb] );
     }
@@ -141,6 +141,13 @@ class VacinaController extends Controller
     public function destroyAll(Request $request)
     {
         $ids = $request->get('ids');
+
+        if(empty($ids))
+        {
+            session()->flash('alert', 'excluir_sem_id');
+            return redirect()->route('vacina');
+        }
+
         $all = implode(',', $ids);
         Vacina::whereIn('id_vacina', explode(',', $all))->update(['flag_excluido' => 1]);
 

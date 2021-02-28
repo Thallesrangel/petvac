@@ -8,7 +8,7 @@
                 text: 'Registro salvo com sucesso',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-                confirmButtonColor: '#f67280',
+                confirmButtonColor: '#f67280'
             })
         </script>
         
@@ -21,7 +21,8 @@
             title: 'Sucesso',
             text: 'Registro alterado com sucesso',
             icon: 'success',
-            confirmButtonText: 'Ok'
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#f67280'
         })
     </script>
     
@@ -34,7 +35,8 @@
                 title: 'Sucesso',
                 text: 'Registro excluído com sucesso',
                 icon: 'success',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#f67280'
             })
         </script>
 
@@ -47,7 +49,8 @@
                 title: 'Sucesso',
                 text: 'Registros excluídos com sucesso',
                 icon: 'success',
-                confirmButtonText: 'Fechar'
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#f67280'
             })
         </script>
 
@@ -60,7 +63,22 @@
                 title: 'Não Autorizado',
                 text: 'Não é possível excluir o registro',
                 icon: 'info',
-                confirmButtonText: 'Ok'
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#f67280'
+            })
+        </script>
+
+        @break
+
+    @case('excluir_sem_id')
+
+        <script>
+            Swal.fire({
+                title: 'Selecionar registros',
+                text: 'É necessário selecionar um ou mais registros para exclusão',
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: '#f67280'
             })
         </script>
 

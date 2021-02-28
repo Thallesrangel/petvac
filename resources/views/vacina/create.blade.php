@@ -31,7 +31,7 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-dose">Dose *</label>
-                                <input type="text" id="input-dose" class="form-control" name="dose" required>
+                                <input type="text" id="input-dose" class="form-control dose" name="dose" required>
                             </div>
                         </div>
 
@@ -71,8 +71,8 @@
                         <input type="text" class="invisible" name="id_animal" value={{ request()->idAnimal }}>
                     </div>
 
-                    <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
-                    <a class="btn btn-link" href="{{ route('animal') }}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                    <a class="btn btn-light" href="{{ route('animal') }}">Cancelar</a>
 
                 </div>
                 

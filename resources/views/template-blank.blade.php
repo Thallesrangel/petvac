@@ -9,7 +9,7 @@
         <meta name="reply-to" content="rangelthr@gmail.com">
         <link rel="stylesheet" href="/css/app.css">
         <script src="/js/app.js"></script>
-        <title>Petvc</title>
+        <title>Petvac - Software para gerenciamento de animais</title>
         <link rel='icon' href="{{ asset('img/favicon.png') }}" type='image/x-icon' sizes="16x16" />
 </head>
     <body>

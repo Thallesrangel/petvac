@@ -13,7 +13,7 @@
                 @csrf
                 @method('get')
                 <input name="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Pesquisar">
-                <button formaction="{{ route('proprietario') }}" class="btn btn btn-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                <button formaction="{{ route('proprietario') }}" class="btn btn btn-light my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>
     </div>
@@ -47,7 +47,7 @@
                         <tr>
                             <td><input type="checkbox" name="ids[]" value="{{ $item['id_proprietario'] }}" class="selectbox"></td>
                             <td>{{ $item['nome'] }}</td>
-                            <td>{{ $item['cpf'] }}</td>
+                            <td class="cpf">{{ $item['cpf'] }}</td>
                             <td>{{ $item['email'] }}</td>
                             <td>
                                 <a href="{{ route('proprietario.editar', $item['id_proprietario']) }}" class="icon-crud"><i class="bi bi-pencil-square"></i></a>

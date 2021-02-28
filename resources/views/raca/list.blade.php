@@ -13,7 +13,7 @@
                 @csrf
                 @method('get')
                 <input name="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Pesquisar">
-                <button formaction="{{ route('raca') }}" class="btn btn btn-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                <button formaction="{{ route('raca') }}" class="btn btn btn-light my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>
     </div>

@@ -51,7 +51,7 @@ class ProprietarioController extends Controller
         $request->validate([
             'nome' => 'required',
             'cpf' => 'required',
-            'email' => 'required'
+            'email' => 'required|email'
         ]);
         
         $proprietario = new Proprietario();
@@ -92,7 +92,7 @@ class ProprietarioController extends Controller
         $request->validate([
             'nome' => 'required',
             'cpf' => 'required',
-            'email' => 'required'
+            'email' => 'required|email'
         ]);
 
         

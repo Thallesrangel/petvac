@@ -40,6 +40,7 @@ Route::middleware([Autenticado::class])->group(function () {
             Route::post('/atualizar/{id}', 'RacaController@update')->name('raca.atualizar');
             Route::get('/excluir/{id}', 'RacaController@destroy')->name('raca.excluir');
             Route::delete('/excluir-varios', 'RacaController@destroyAll')->name('raca.excluirvarios');
+            Route::get('/raca-especie', 'RacaController@racaEspecie')->name('raca.racaespecie');
         });
 
         # Proprietário
@@ -76,6 +77,11 @@ Route::middleware([Autenticado::class])->group(function () {
             Route::post('/atualizar/{id}', 'VacinaController@update')->name('vacina.atualizar');
             Route::get('/excluir/{id}', 'VacinaController@destroy')->name('vacina.excluir');
             Route::delete('/excluir-varios', 'VacinaController@destroyAll')->name('vacina.excluirvarios');
+        });
+
+
+        Route::prefix('vermifugo')->group(function () {
+            Route::get('/', 'VermifugoController@index')->name('vermifugo');
         });
 
         // Fallback

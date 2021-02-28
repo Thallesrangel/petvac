@@ -70,8 +70,8 @@
 
                     <input type="text" class="invisible" name="id_animal" value={{ $animal['id_animal'] }}>
 
-                    <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
-                    <a class="btn btn-link" href="{{ route('animal') }}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                    <a class="btn btn-light" href="{{ route('animal') }}">Cancelar</a>
 
                 </div>
                 
